@@ -1,0 +1,25 @@
+<div id="op_content_box">
+    <script type="text/javascript">
+        var loadOptions = {
+            module: 'op-frontend-searchwidget',
+            content_id: 'op_content_box',
+            options: {
+                redirectTarget: '/die-suche.php',
+                layout: 2
+            }
+        };
+
+        var secra_op_client;
+        if (secra_op_client && secra_op_client.loadModule) {
+            secra_op_client.loadModule(loadOptions['module'], loadOptions['content_id'], loadOptions['options']);
+        } else {
+            if (!secra_op_client) { secra_op_client = {}; }
+            secra_op_client.loadQueue = [];
+            secra_op_client.loadQueue.push({
+                module: loadOptions['module'],
+                embed_id: loadOptions['content_id'],
+                options: loadOptions['options']
+            });
+        }
+    </script>
+</div>
